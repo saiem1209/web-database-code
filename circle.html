@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Circle Circumference</title>
+</head>
+<body>
+    <h2>Calculate Circle Circumference</h2>
+    <input type="number" id="radius" placeholder="Enter radius">
+    <button onclick="calculate()">Calculate</button>
+    <p id="result"></p>
+
+    <script>
+        function calculate() {
+            var r = parseFloat(document.getElementById("radius").value);
+            if (isNaN(r) || r <= 0) {
+                document.getElementById("result").innerHTML = "Please enter a valid radius";
+                return;
+            }
+            var c = 2 * Math.PI * r; // More accurate than 3.1416
+            document.getElementById("result").innerHTML = "Circumference = " + c;
+        }
+    </script>
+</body>
+</html>
