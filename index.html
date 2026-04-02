@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Triangle Type Check</title>
+</head>
+<body>
+    <h2>Check Triangle Validity and Type</h2>
+    <input type="number" id="a" placeholder="Enter side a">
+    <input type="number" id="b" placeholder="Enter side b">
+    <input type="number" id="c" placeholder="Enter side c">
+    <button onclick="checkTriangle()">Check</button>
+    <p id="result"></p>
+
+    <script>
+        function checkTriangle() {
+            let a = parseFloat(document.getElementById("a").value);
+            let b = parseFloat(document.getElementById("b").value);
+            let c = parseFloat(document.getElementById("c").value);
+
+            if (Number.isNaN(a) || Number.isNaN(b) || Number.isNaN(c) || a <= 0 || b <= 0 || c <= 0) {
+                document.getElementById("result").innerText = "Please enter valid positive numbers.";
+                return;
+            }
+
+    
+            if (a + b > c && a + c > b && b + c > a) {
+           
+                if (a === b && b === c) {
+                    document.getElementById("result").innerText = "Valid triangle: Equilateral .";
+                } else if (a === b || b === c || a === c) {
+                    document.getElementById("result").innerText = "Valid triangle: Isosceles .";
+                } else {
+                    document.getElementById("result").innerText = "Valid triangle: Scalene.";
+                }
+            } else {
+                document.getElementById("result").innerText = "Not a valid triangle.";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h3>Quadratic Root Finder (ax² + bx + c)</h3>
+    
+    <input type="number" id="valA" placeholder="a">
+    <input type="number" id="valB" placeholder="b">
+    <input type="number" id="valC" placeholder="c">
+    
+    <button onclick="solve()">Solve</button>
+
+    <div id="res"></div>
+
+    <script>
+        function solve() {
+            
+            let a = parseFloat(document.getElementById('valA').value);
+            // insted of parseFloat you can use Number(documen.get.......git init)
+            let b = parseFloat(document.getElementById('valB').value);
+            let c = parseFloat(document.getElementById('valC').value);
+            let res = document.getElementById('res');
+
+ 
+            if (isNaN(a) || isNaN(b) || isNaN(c)) {
+                res.innerText = "Please enter valid numbers.";
+                return;
+            }
+
+
+            if (a === 0) {
+                res.innerText = "Not a quadratic equation (a cannot be 0).";
+                return;
+            }
+            let d = (b * b) - (4 * a * c);
+
+            if (d > 0) {
+                let x1 = (-b + Math.sqrt(d)) / (2 * a);
+                let x2 = (-b - Math.sqrt(d)) / (2 * a);
+                res.innerText = "Two real roots: " + x1 + " and " + x2;
+            } 
+            else if (d === 0) {
+                let x = -b / (2 * a);
+                res.innerText = "One real root: " + x;
+            } 
+            else {
+
+                res.innerText = "Complex roots: ";
+            }
+        }
+    </script>
+
+</body>
+</html>
